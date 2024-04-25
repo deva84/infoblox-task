@@ -1,0 +1,45 @@
+.items-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 30px;
+}
+
+.item-main-block {
+  margin-bottom: 10px;
+  padding: 10px;
+  min-height: 30px;
+  border: 1px solid lightgray;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.status {
+  display: inline-block;
+}
+
+.item-main-block-wrapper {
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+
+.action-wrapper {
+  display: flex;
+  gap: 30px;
+  margin: 50px 30px;
+
+  button {
+    width: 100px;
+    height: 30px;
+    border-radius: 4px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

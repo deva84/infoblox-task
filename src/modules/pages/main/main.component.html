@@ -1,0 +1,35 @@
+<div class="action-wrapper">
+  <button (click)="updateItem(ItemAction.CREATE)">Create</button>
+  <button (click)="updateItem(ItemAction.EDIT)" [disabled]="isDisabled()">Edit</button>
+  <button (click)="updateItem(ItemAction.REMOVE)" [disabled]="isDisabled()">Remove</button>
+</div>
+<ng-container *ngIf="servers.length">
+  <div class="items-wrapper">
+    <div *ngFor="let server of servers; trackBy: trackByID" (click)="toggleExpansion(server)">
+      <div class="item-main-block">
+        <div class="item-main-block-wrapper">
+          <div>
+            <input
+              type="checkbox"
+              [checked]="!!server.selected"
+              (change)="onServerSelectedChange(server)"
+            >
+            <label>{{ server.name }}</label>
+            <p>{{ server.description }}</p>
+          </div>
+          <div>
+            <img class="icon" [src]="getIcon(server)">
+            <span class="status">{{ server.status }}</span>
+          </div>
+        </div>
+
+        <ng-container *ngIf="!!server.expanded">
+          <div class="item-expandable-block"></div>
+          <p>General Info:</p>
+          <p>Server IP address: {{ server.server_ip }}</p>
+          <p>Server NAT IP address: {{ server.server_nat_ip }}</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>

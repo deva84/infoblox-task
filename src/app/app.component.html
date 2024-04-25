@@ -1,0 +1,16 @@
+<app-main
+  [servers]="servers"
+  [natSpaces]="natSpaces"
+  (serverStateChange)="onServerSelectedChange($event)"
+  (itemUpdate)="onItemUpdate($event)"
+>
+</app-main>
+
+<app-modal
+  *ngIf="showModal"
+  [server]="modalServer"
+  [natSpaces]="natSpaces"
+  [action]="modalAction"
+  (save)="onSave($event)"
+  (close)="closeModal()"
+></app-modal>
